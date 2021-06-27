@@ -21,4 +21,20 @@ DrawMe - Draws shapes based on the measurements provided in natural language
     2. run 'npm i' in console
     3. run 'ng serve'
     
+<strong>Features:</strong> 
+
+    - Backend valdiation of input string formatting with error handling
+    - Backend validation of invalid measurements and amounts provided for specified shape with error handling
+    - Front end example buttons that render the shape and specify example string input
+    
 <strong>Overview</strong>
+
+A web application that allows the user to draw a shape of x measurements based on the format:
+    Draw a(n) &lt;shape&gt; with a(n) &lt;measurement&gt; of &lt;amount&gt; (and a(n) &lt;measurement&gt; of &lt;amount&gt;)...
+    
+Example: Octagon rendered
+![image](https://user-images.githubusercontent.com/21240686/123551879-0eaae580-d7b7-11eb-9ea4-c3e0fc0a5423.png)
+
+Example: Invalid string input
+![image](https://user-images.githubusercontent.com/21240686/123552243-a3621300-d7b8-11eb-9085-098130571380.png)
+
