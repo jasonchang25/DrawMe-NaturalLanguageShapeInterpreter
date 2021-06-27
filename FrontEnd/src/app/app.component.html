@@ -1,0 +1,93 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  Draw me! - A Natural Language Shape Interpreter
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <p class="designation">Available Shapes</p>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" (click)="Example('isosceles triangle')">
+        <span>Isosceles Triangle</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('square')">
+        <span>Square</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('scalene triangle')">
+        <span>Scalene Triangle</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('parallelogram')">
+      <span>Parallelogram</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('equilateral triangle')">
+      <span>Equilateral Triangle</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('pentagon')">
+      <span>Pentagon</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('rectangle')">
+      <span>Rectangle</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('hexagon')">
+      <span>Hexagon</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('heptagon')">
+      <span>Heptagon</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('octagon')">
+      <span>Octagon</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('circle')">
+      <span>Circle</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Example('oval')">
+      <span>Oval</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>      
+      <div class="content mat-elevation-z8" style="flex-direction: column">
+        <h1>{{shapeType}}</h1>
+          <canvas #myCanvas id="myCanvas" width="1200px" height="400px"></canvas>
+          
+          <form
+            name="form"
+            (ngSubmit)="f.form.valid && OnSubmit()"
+            #f="ngForm"
+            novalidate
+            style="width:75%"
+          >
+            <div class="form-group">
+              <div style="display: flex">
+                <input
+                type="text"
+                class="form-control"
+                name="input"
+                [(ngModel)]="shapeInput.input"
+                #input="ngModel"
+                placeholder="Example: Draw a circle with radius 100"
+              />
+              <button class="btn btn-primary btn-block" style="width:100px; margin-left:10px">
+                Draw!
+              </button>
+              </div>            
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="isError"
+              >
+                <p>{{ errorMessage }}</p>
+              </div>
+              
+            </div>
+          </form>
+                  
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
