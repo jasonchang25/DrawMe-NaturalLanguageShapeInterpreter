@@ -24,8 +24,8 @@ DrawMe - Draws shapes based on the measurements provided in natural language
 <strong>Features:</strong> 
 
     - Backend valdiation of input string formatting with error handling
-    - Backend validation of invalid measurements and amounts provided for 
-      specified shape with error handling
+    - Backend validation of invalid measurements and amounts provided for specified shape with error 
+      handling
     - Front end example buttons that render the shape and specify example string input
     
 <strong>Overview</strong>
