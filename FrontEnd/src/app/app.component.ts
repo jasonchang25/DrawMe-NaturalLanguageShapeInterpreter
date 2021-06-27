@@ -65,7 +65,7 @@ export class AppComponent implements AfterViewInit{
       },
       err => {
         this.shapeType = 'Invalid Shape';
-        console.log(this.shapeType);
+        this.DrawSadFace();
         this.errorMessage = err.error.message;
         this.isError = true;
       }
@@ -73,7 +73,6 @@ export class AppComponent implements AfterViewInit{
   }
 
   public Example(input:string){
-    console.log(input);
     switch(input){
       case 'isosceles triangle':
         this.shapeInput.input = 'draw an isosceles triangle with a width of 400 and a height of 200';
@@ -133,6 +132,18 @@ export class AppComponent implements AfterViewInit{
   private DrawShape() {
     this.context.beginPath();
     this.shapeInfo.shapeVertices.forEach(coord => this.context.lineTo(this.centerX + coord.x, this.centerY + coord.y));
+    this.context.stroke();
+  }
+
+  private DrawSadFace(){
+    this.context.beginPath();
+    this.context.arc(this.centerX, this.centerY, 150, 0, Math.PI * 2, true); // Outer circle
+    this.context.moveTo(this.centerX + 90, this.centerY + 90);
+    this.context.arc(this.centerX, this.centerY + 90, 90, 0, Math.PI, true);  // Mouth (anti-clockwise)
+    this.context.moveTo(this.centerX - 30, this.centerY - 45);
+    this.context.arc(this.centerX - 45, this.centerY - 45, 15, 0, Math.PI * 2, true);  // Left eye
+    this.context.moveTo(this.centerX + 60, this.centerY - 45);
+    this.context.arc(this.centerX + 45, this.centerY - 45, 15, 0, Math.PI * 2, true);  // Right eye
     this.context.stroke();
   }
 }
